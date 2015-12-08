@@ -1,12 +1,12 @@
-# Project Name
+# Wandoo
 
-> Pithy project description
+> An app for organizing impromptu meetups.
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Manu Mishra
+  - __Scrum Master__: Greg Dungca
+  - __Development Team Members__: Brian Kwon, William Lee
 
 ## Table of Contents
 
