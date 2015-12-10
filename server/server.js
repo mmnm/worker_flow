@@ -2,17 +2,15 @@ var express = require('express');
 var config = require('./config')
 var router = require('./router');
 var logger = require('./logger');
-//var bodyParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 var app = express();
 var expressRouter = express.Router(); 
 
 app.use(logger);
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 app.use('/', expressRouter);
-
-// app.get('/', function(req, res){
-//   res.send('hello world');
-// });
 
 router(expressRouter);
 app.listen(config.port);
