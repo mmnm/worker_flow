@@ -1,4 +1,4 @@
-# DartFeed API Specification
+# Wandoo API Specification
  
 ### GET /api/
 
