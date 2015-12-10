@@ -1,0 +1,22 @@
+{
+  "name": "wandoo",
+  "version": "1.0.0",
+  "description": "An app for organizing impromptu meetups.",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GregDungca/wandoo.git"
+  },
+  "author": "Greek Epistle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GregDungca/wandoo/issues"
+  },
+  "homepage": "https://github.com/GregDungca/wandoo#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
