@@ -25,6 +25,7 @@ class UserModel {
     var employer: String?
     var jobTitle: String?
     var education: String?
+    var uiimage: UIImage?
 
     //function -> void
      //name = from api request
@@ -71,6 +72,7 @@ class UserModel {
                 
                 if let data = NSData(contentsOfURL: url!) {
                     print(data)
+                    self.uiimage = UIImage(data:data)
                     var imageData = UIImagePNGRepresentation(UIImage(data:data)!)
                     var imageFile = PFFile(data: imageData!)
                     self.photo = imageFile
@@ -98,7 +100,7 @@ class UserModel {
                             user["name"] = self.name!
                             user["gender"] = self.gender!
                             user["education"] = self.education!
-                            user["photo"] = self.photo
+//                            user["photo"] = self.photo
 
                             user.saveInBackground()
                         }

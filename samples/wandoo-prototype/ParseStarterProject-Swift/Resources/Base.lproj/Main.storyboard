@@ -43,6 +43,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="name" destination="e0Q-nz-bUE" id="pCx-bh-jab"/>
                         <outlet property="profileImage" destination="Cfb-Xt-Z0h" id="NMF-9S-aVi"/>
                         <outlet property="userName" destination="e0Q-nz-bUE" id="hVj-18-V4a"/>
                     </connections>
