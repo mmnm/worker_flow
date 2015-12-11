@@ -44,8 +44,8 @@ class UserModel {
                 
                 // Access user data
                 print(userData)
-                self.name = userData["name"] as! String
-                self.gender = userData["gender"] as! String
+                self.name = userData["name"] as? String
+                self.gender = userData["gender"] as? String
 //                self.getAgeFromFBBirthday(String(userData["birthday"], completion: { (age) -> Void in
 //                    self.age = age
 //                }))
@@ -56,13 +56,13 @@ class UserModel {
                 }
                 
                 if userData["work"] != nil && userData["work"]![0]["position"] != nil {
-                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as! String
+                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as? String
                 }
                 
                 if userData["education"] != nil {
                     for var i = 0; i < userData["education"]!.count; i++ {
                         if userData["education"]![i]["type"] as! String == "College" {
-                            self.education = userData["education"]![i]["school"]!!["name"] as! String
+                            self.education = userData["education"]![i]["school"]!!["name"] as? String
                         }
                     }
                 }
