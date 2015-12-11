@@ -12,6 +12,7 @@
 		10F9FDEC1C18AFBB00D3C4CC /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FDEB1C18AFBB00D3C4CC /* SettingsController.swift */; };
 		10F9FDF01C18ECD800D3C4CC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FDEF1C18ECD800D3C4CC /* UserModel.swift */; };
 		10F9FDF41C18F3B900D3C4CC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */; };
+		10F9FE731C1B83FF00D3C4CC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */; };
 		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		10F9FDEB1C18AFBB00D3C4CC /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		10F9FDEF1C18ECD800D3C4CC /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		731D19D7D6D60F4A3116C2FD /* Pods-ParseStarterProject-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseStarterProject-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseStarterProject-Swift/Pods-ParseStarterProject-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */,
 				10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */,
 				10F9FDEF1C18ECD800D3C4CC /* UserModel.swift */,
 				10F9FDEB1C18AFBB00D3C4CC /* SettingsController.swift */,
@@ -246,6 +249,7 @@
 			files = (
 				10F9FDE61C17DFF700D3C4CC /* SwipeController.swift in Sources */,
 				10F9FDF01C18ECD800D3C4CC /* UserModel.swift in Sources */,
+				10F9FE731C1B83FF00D3C4CC /* ChatViewController.swift in Sources */,
 				10F9FDEC1C18AFBB00D3C4CC /* SettingsController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				10F9FDF41C18F3B900D3C4CC /* ProfileViewController.swift in Sources */,
