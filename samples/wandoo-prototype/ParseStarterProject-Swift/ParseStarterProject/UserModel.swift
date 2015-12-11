@@ -52,18 +52,18 @@ class UserModel {
 //                }))
                 
                     
-                if userData["work"] != nil && userData["work"]![0]["employer"] != nil {
+                if userData["work"] != nil && userData["work"]![0]["employer"]! != nil {
                     self.employer = userData["work"]![0]["employer"]!!["name"] as! String
                 }
                 
-                if userData["work"] != nil && userData["work"]![0]["position"] != nil {
-                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as? String
+                if userData["work"] != nil && userData["work"]![0]["position"]! != nil {
+                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as! String
                 }
                 
                 if userData["education"] != nil {
                     for var i = 0; i < userData["education"]!.count; i++ {
-                        if userData["education"]![i]["type"] as! String == "College" {
-                            self.education = userData["education"]![i]["school"]!!["name"] as? String
+                        if userData["education"]![i]["type"]! as! String == "College" {
+                            self.education = userData["education"]![i]["school"]!!["name"] as! String
                         }
                     }
                 }
