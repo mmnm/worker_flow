@@ -25,7 +25,7 @@ class UserModel {
     var employer: String?
     var jobTitle: String?
     var education: String?
-    var uiimage: UIImage?
+    var id: String?
 
     //function -> void
      //name = from api request
@@ -45,11 +45,10 @@ class UserModel {
                 
                 // Access user data
                 print(userData)
+                self.id = userData["id"] as! String
                 self.name = userData["name"] as? String
                 self.gender = userData["gender"] as? String
-//                self.getAgeFromFBBirthday(String(userData["birthday"], completion: { (age) -> Void in
-//                    self.age = age
-//                }))
+                self.age = self.getAgeFromFBBirthday(userData["birthday"] as! String) as? Int
                 
                     
                 if userData["work"] != nil && userData["work"]![0]["employer"]! != nil {
@@ -67,15 +66,12 @@ class UserModel {
                         }
                     }
                 }
-                print(accessToken)
+
                 let url = NSURL(string: "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token="+String(accessToken))
                 
+                //photo data
                 if let data = NSData(contentsOfURL: url!) {
-                    print(data)
-                    self.uiimage = UIImage(data:data)
-                    var imageData = UIImagePNGRepresentation(UIImage(data:data)!)
-                    var imageFile = PFFile(data: imageData!)
-                    self.photo = imageFile
+                    //do something with data
                 }
                 completion()
                 print(self.name)
@@ -100,6 +96,7 @@ class UserModel {
                             user["name"] = self.name!
                             user["gender"] = self.gender!
                             user["education"] = self.education!
+                            user["age"] = self.age!
 //                            user["photo"] = self.photo
 
                             user.saveInBackground()
@@ -110,29 +107,40 @@ class UserModel {
         }
     }
     func getUserInfo() {
+        let url = NSURL(string: "http://localhost:3000")
         
-    }
-    
-    func getAgeFromFBBirthday(birthdate: String!, completion: ((age: Int) -> Void)!) {
+        let request = NSMutableURLRequest(URL: url!)
         
-        let bDayComponents = NSDateComponents()
+        let session = NSURLSession.sharedSession()
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        var NSStringBday = birthdate as NSString
         
-        bDayComponents.year = Int(NSStringBday.substringWithRange(NSRange(location: 6, length: 4)))!
-        bDayComponents.month = Int(NSStringBday.substringWithRange(NSRange(location: 0, length: 2)))!
-        bDayComponents.day = Int(NSStringBday.substringWithRange(NSRange(location: 3, length: 2)))!
+        var params : [String: AnyObject] = [
+            "email" : "greekepistles@wandoo.com",
+            "password" : "wandoo123"
+        ]
         
-        var yearsOld: Double
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
         
-        if let bDate = NSCalendar.currentCalendar().dateFromComponents(bDayComponents) {
-            yearsOld = Double(NSDate().timeIntervalSince1970) - Double(bDate.timeIntervalSince1970)
-            yearsOld = yearsOld/60/60/24/365
-            completion(age: Int(yearsOld))
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
         }
     }
-}
+    
+    func getAgeFromFBBirthday(birthdate: String) -> Int {
+        
+        let formatter: NSDateFormatter = NSDateFormatter()
+        
+        formatter.dateFormat = "MM/dd/yyyy"
+        let dt = formatter.dateFromString(birthdate)
+        
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
 
-//var brian = new userModel
-//brian.function
-//brian.name
+        let components = calendar.components(NSCalendarUnit.Year, fromDate: dt!, toDate: date, options: NSCalendarOptions.WrapComponents)
+        
+        return components.year
+    }
+}

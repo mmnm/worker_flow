@@ -12,7 +12,6 @@ class ProfileViewController: UIViewController {
     let user = UserModel()
 
     @IBOutlet weak var profileImage: UIImageView!
-
     @IBOutlet weak var name: UILabel!
     
     override func viewDidLoad() {
@@ -22,8 +21,7 @@ class ProfileViewController: UIViewController {
             print (self.user.name)
             print (self.user.photo)
             
-            self.name.text = self.user.name
-            self.profileImage.image = self.user.uiimage
+            self.name.text = String(self.user.id!)
             
             
         }
