@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cbO-Ih-obP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qih-Dc-awY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtG-mv-UVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4012" y="905"/>
+            <point key="canvasLocation" x="5564" y="1165"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="U7p-YT-ZLt">
@@ -70,7 +70,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="cbO-Ih-obP" kind="show" id="xzk-mF-MJB"/>
+                                    <segue destination="qih-Dc-awY" kind="show" identifier="backToLogin" id="vpr-r6-cZt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -83,7 +83,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhh-9w-Eh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6348" y="199"/>
+            <point key="canvasLocation" x="6880" y="199"/>
         </scene>
         <!--Swipe Controller-->
         <scene sceneID="xTD-lm-beX">
@@ -133,7 +133,7 @@
                                 <items>
                                     <barButtonItem style="plain" id="ovT-Zy-Xm8">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O2A-bN-UQy">
-                                            <rect key="frame" x="16" y="8" width="42" height="29"/>
+                                            <rect key="frame" x="16" y="8" width="29" height="29"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="My Posts" image="icon_ios_topcharts.png"/>
                                             <connections>
@@ -186,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5307" y="161"/>
+            <point key="canvasLocation" x="5839" y="161"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rQm-Ta-HwS">
@@ -213,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMB-yh-yBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3550" y="905"/>
+            <point key="canvasLocation" x="5054" y="1049"/>
         </scene>
         <!--FacebookLoginController-->
         <scene sceneID="m45-gS-bIz">
@@ -235,7 +235,6 @@
                                 <state key="normal" image="Rectangle 43 + Login with facebook + Facebook.png"/>
                                 <connections>
                                     <action selector="loginFacebookButtonThatTakesUsToTheLoginAtSafari:" destination="qih-Dc-awY" eventType="touchUpInside" id="seu-Ec-F76"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="u41-sf-Oi5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,12 +245,14 @@
                             <constraint firstItem="t6a-LW-n2H" firstAttribute="top" secondItem="iK2-YF-dNb" secondAttribute="bottom" constant="20" id="uo8-19-BNg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="M4S-ua-6Fm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <segue destination="UcQ-As-2ES" kind="show" identifier="LoginFacebook" id="JT1-qN-DeI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAP-ul-j4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4894" y="-275"/>
+            <point key="canvasLocation" x="4752" y="-199"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Rxp-00-u12">
@@ -332,25 +333,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg0-H6-FqO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5880" y="-33"/>
+            <point key="canvasLocation" x="6412" y="-33"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="z7c-mx-EO6">
+        <scene sceneID="vYf-vO-lWg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cbO-Ih-obP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UcQ-As-2ES" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mNJ-iK-OSM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LIG-kr-Btz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="qih-Dc-awY" kind="relationship" relationship="rootViewController" id="30p-pl-bBa"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="68P-Vw-g48"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ekn-va-HMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOF-Yn-4u3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4362" y="-275"/>
+            <point key="canvasLocation" x="5307" y="161"/>
         </scene>
     </scenes>
     <resources>

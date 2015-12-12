@@ -48,8 +48,12 @@ class FacebookLoginController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        if self.navigationController != nil {
+            self.navigationController!.navigationBarHidden = true
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
