@@ -58,7 +58,7 @@ curl -i http://127.0.0.1:8000/api/user
 ```
 
 #### Usage
-1. When a user deletes his/her account from our system.
+1. When a user deletes his/her account from our system. a) delete user from user table b) delete host wandoos c) delete all wandoo interests by the user
 
 ### PUT /api/users:\<userID\>
 
@@ -125,7 +125,7 @@ longitude | longitude of user's position | -122.4091699 |
 #### Examples
 
 #### Usage
-1. When a user deletes a wandoo
+1. When a user deletes a wandoo (delete room, tags, interests)
 2. When a wandoo expires and the worker deletes it
 
 ## Interested 
@@ -162,6 +162,9 @@ Name | Notes | Example
 selected| Bool that indicates that a host has selected a user | true
 rejected| Bool that indicates that a host has rejected a user | true
 
+#### Usage
+1. When a host selects/rejects a user, send a PUT to change respective flag
+
 ## Rooms
 
 ### GET /api/rooms/\<roomID\>
@@ -181,9 +184,15 @@ expired| Boolean specifying if room is expired | true |
 Name| Notes | Example
 ----|-------|--------
 wandooID| | 352436|
-userID| | 235435| 
+userID| An array of userIDs | [235435, 53466]| 
+
+#### Usage
+1. When a host has selected a guest for the hosts's wandoo, the room will be created with the host userIDs and the selected guest userIDs.
 
 ### DELETE /api/rooms/\<roomID\>
+
+#### Usage
+1. Worker deletes rooms when they have been expired.
 
 
 
