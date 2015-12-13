@@ -12,6 +12,7 @@ module.exports = {
       }
     });
   },
+
   post: function (req, res) {
     var userAttr = {
       name : 0,
@@ -49,5 +50,54 @@ module.exports = {
         res.send();
       }
     });
+  },
+
+  delete : function (req, res) {
+    user.delete(req.params.userID, function (err, result1, result2) {
+      if ( err ) {
+        console.error(err);
+        res.status('400').send('Error with deletion');
+      } else {
+        console.log(result1);
+        console.log(result2);
+        res.send();// what if there was no user that had the userID specified?
+        // we can use result.affectedRows=0 to check if there was a deletion
+      }
+    });
+  },
+
+  put : function (req, res) {
+
+    var locAttr = {
+      latitude : 0,
+      longitude : 1
+    };
+
+    var locValues = [];
+
+    for ( var i in req.body ){
+      if ( i in locAttr ) {
+        locValues[locAttr[i]] = req.body[i];
+      } else {
+        res.send('Wrong parameters');
+        return;// is this necessary?  will execution continue further even though we've sent?
+      }
+    }
+    console.log(locValues);
+
+    locValues.push(req.params.userID);
+
+    user.put(locValues, function (err, result) {
+      if ( err ) {
+        console.error(err);
+        res.status('400').send('Error with update');
+      } else {
+        console.log(result);
+        res.send();
+      }
+    });
+
   }
+
+
 }

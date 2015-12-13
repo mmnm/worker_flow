@@ -10,4 +10,8 @@ module.exports = function (router) {
 
   router.post('/api/users', user.post);
 
+  router.delete('/api/users/:userID', user.delete);
+
+  router.put('/api/users/:userID', user.put);
+
 }

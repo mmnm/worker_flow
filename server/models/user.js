@@ -37,6 +37,40 @@ module.exports = {
       }  
     });
 
+  },
+
+  delete : function (userID, callback) {
+    var qs1 = "delete from user_educational_institution where userID = ?;"
+    var qs2 = "delete from user where userID = ?;"
+
+    db.query(qs1, userID, function (err, results1) {
+      if ( err ) {
+        callback(err);
+      } else {
+        db.query(qs2, userID, function (err, results2) {
+          if ( err ) {
+            callback(err);
+          } else {
+            callback(null, results1, results2);
+          }
+        });
+      }
+    });
+
+  },
+
+  put : function (locationData, callback) {
+    var qs1 = "update user set latitude = ?, longitude = ? where userID = ?;"
+
+    db.query(qs1, locationData, function (err, results) {
+      if ( err ) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    })
+    
+
   }
 
 }
