@@ -1,79 +1,198 @@
 # Wandoo API Specification
+
+##Users
  
-### GET /api/
+### GET /api/users:\<userID\>
 
-
-#### Parameters
-
-Name | Description | Validation | Notes |
------|------------- | --------- | ----- |
-popular | Popular articles | Bool | Not currently used by app |
-offset | To get article <offset> and onwards | Number | Needs to be implemented |
-limit | Limit the number of articles returned | Number | Needs to be implemented |
-
-#### Examples
+#### Example
 
 ```json
-curl -i http://127.0.0.1:8000/api/articles?popular=true
+curl -i http://127.0.0.1:8000/api/user/324624
 ```
 
-### POST /api/articles
+#### Usage
+1. When user logs in, we need to display user info within their profile. 
+2. When a user likes a wandoo, we need to display user info to host
+
+### POST /api/users
 
 
 #### Payload
 
-Array of articles with each article defined by:
-
-Name | Description | Validation | 
+Name | Notes | Example | 
 -----|------------- | --------- |
-title | Article title | String | 
-linkURL | Link to article | String |  
-summary | Snippet/summary | String | 
-source | Publisher | String | 
-imgURL | Image URL for article | String | 
-date | Date of publication | ISO:8601 String (use Date.prototype.toJSON()) | 
-categories | Our assigned categories | Array of Strings | 
+facebookID | Uniquely identifies a user on Facebook| 10153381139067956 | 
+name | Full name | John Smith |  
+age | | 28 | 
+sex | | M| 
+profilePic | Image file | ? | 
+employer | | Google | 
+jobTitle |  | Software Engineer | 
+educationInstitution | | Stanford |
+friends | POST MVP | |
+interests | POST MVP | |
+likes | POST MVP |  |
+
+
 
 #### Examples
+
+TODO
 
 ```json
 
 curl -i http://127.0.0.1:8000/api/articles -H "Content-Type: application/json" -d '[{"title":"TensorFlow and Monetizing Intellectual Property","linkURL":"test","summary":"test","source":"bleh","imgURL":"gah","date":"1995-12-17T11:24:00.000Z","categories":["Startups","bleh","Money","JavaS"]},{"title":"Another Article","linkURL":"test","summary":"test","source":"bleh","imgURL":"gah","date":"1995-12-17T11:24:00.000Z","categories":["Startups","bleh","x"]}]';
 
 ```
+#### Usage
+1. Every new user that is created will have its user data sent to the server to store in the database.
 
-### GET /api/users
+### DELETE /api/users:\<userID\>
 
-#### Examples
+#### Example
+
+TODO
+
 ```json
-curl -i http://127.0.0.1:8000/api/users
+curl -i http://127.0.0.1:8000/api/user
 ```
 
+#### Usage
+1. When a user deletes his/her account from our system.
+
+### PUT /api/users:\<userID\>
+
+#### Payload
+
+Name | Notes | Example |
+-----|------------- | --------- |
+latitude | latitude of user's current position | 37.7836675 |
+longitude | longitude of user's current position| -122.4091699 | 
+
+#### Usage
+1. For every user request from the client, we will send this PUT request to update the user location (ex. from web application, we can use navigator.geolocation.getCurrentPosition)
 
 
 
-### GET /api/user:id
+
+## Wandoos
+
+### GET /api/wandoos
+
+#### Parameters
+
+Name | Notes | Example
+-----|-------|------------|
+offset| The record number to start from | 1 |
+limit | Limits the number of return values | 25 |
+userID | | 222 |
+startTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:31:00.040Z |
+endTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:31:00.040Z |
+postTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP | 2015-12-12T01:31:00.040Z |
+tag | POST MVP | dinner |
 
 #### Examples
+
+TODO
+
 ```json
-curl -i http://127.0.0.1:8000/api/user/56453c61deffcac712aadc6b
+curl -i http://127.0.0.1:8000/api/wandoos/4256245
 ```
 
-### GET /api/categories
+#### Usage
+1. Retrieve all wandoos of a host by specifying host's userID
+2. Retrieving all wandoos near user's location
+
+### POST /api/wandoos
+
+#### Payload
+
+Name | Notes | Example | 
+-----|------------- | --------- |
+userID | | 222 | 
+text | Full text of the wandoo (max of x characters)? | Going out to lunch |  
+startTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
+endTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
+postTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
+tag | | dinner | 
+latitude | latitude of user's position | 37.7836675 |
+longitude | longitude of user's position | -122.4091699 |
+
+### DELETE /api/wandoos/\<wandooID\>
+
 
 
 #### Examples
-```json
-curl -i http://http://localhost:8000/api/categories
-```
 
-### PUT /api/categories
+#### Usage
+1. When a user deletes a wandoo
+2. When a wandoo expires and the worker deletes it
 
+## Interested 
+
+### GET /api/interested
+
+#### Parameters
+
+Name | Notes | Example
+-----|-------|---------
+wandooID| Cannot be specified if userID is specified| 22323|
+userID| Cannot be specified if wandooID is specified| 235245|
 
 #### Examples
-```json
-curl -i -X PUT -H "Content-Type: application/json" http://localhost:8000/api/categories -d '{"categories" : {"category":"C"}}'
-```
+
+#### Usage
+1. On the bulletin board, all wandoos which a user has already expressed interest in will be disabled
+2. A user will be able to view all of their wandoos
+
+### POST /api/interested
+
+#### Payload
+
+Name | Notes | Example
+-----|-------|--------
+wandooID| | 234325
+userID| | 245425
+
+### PUT /api/interested/\<wandooID\>/\<userID\>
+
+#### Payload
+Name | Notes | Example
+----|------|------
+selected| Bool that indicates that a host has selected a user | true
+rejected| Bool that indicates that a host has rejected a user | true
+
+## Rooms
+
+### GET /api/rooms/\<roomID\>
+
+#### Parameters
+
+Name | Notes | Example
+-----|-------|---------
+userID| Cannot be specified if wandooID is specified| 22323|
+wandooID| Cannot be specified if userID is specified| 235245|
+expired| Boolean specifying if room is expired | true |
+
+### POST /api/rooms
+
+#### Payload
+
+Name| Notes | Example
+----|-------|--------
+wandooID| | 352436|
+userID| | 235435| 
+
+### DELETE /api/rooms/\<roomID\>
+
+
+
+
+
+
+
+
+
 
 
 

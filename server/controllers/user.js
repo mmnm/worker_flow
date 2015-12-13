@@ -7,7 +7,6 @@ module.exports = {
         console.error(err);
         res.send('There was an error');
       } else {
-        console.log(JSON.stringify(result));
         res.json(result); 
       }
     });
