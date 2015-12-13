@@ -9,7 +9,7 @@ var expressRouter = express.Router();
 
 app.use(logger);
 // app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use('/', expressRouter);
 
 router(expressRouter);

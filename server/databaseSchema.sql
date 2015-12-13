@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS `wandoo`;
 CREATE DATABASE wandoo;
 use wandoo;
 
@@ -36,14 +37,14 @@ DROP TABLE IF EXISTS `user`;
     
 CREATE TABLE `user` (
   `userID` INTEGER NULL AUTO_INCREMENT DEFAULT NULL,
+  `name` VARCHAR(100) NULL DEFAULT NULL,
   `facebookID` INTEGER NULL DEFAULT NULL,
+  `email` VARCHAR(100) NULL DEFAULT NULL,
   `age` INTEGER NULL DEFAULT NULL,
   `sex` CHAR(1) NULL DEFAULT NULL,
-  `name` VARCHAR(100) NULL DEFAULT NULL,
   `profile_picture` BLOB NULL DEFAULT NULL,
   `employer` VARCHAR(100) NULL DEFAULT NULL,
   `job_title` VARCHAR(100) NULL DEFAULT NULL,
-  `email` VARCHAR(100) NULL DEFAULT NULL,
   `latitude` DECIMAL NULL DEFAULT NULL,
   `longitude` DECIMAL NULL DEFAULT NULL,
   PRIMARY KEY (`userID`)
@@ -116,13 +117,13 @@ CREATE TABLE `wandoo_tag` (
 );
 
 -- ---
--- Table 'wandoo_like'
+-- Table 'wandoo_interest'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `wandoo_like`;
+DROP TABLE IF EXISTS `wandoo_interest`;
     
-CREATE TABLE `wandoo_like` (
+CREATE TABLE `wandoo_interest` (
   `wandooID` INTEGER NULL DEFAULT NULL,
   `userID` INTEGER NULL DEFAULT NULL,
   `selected` TINYINT(1) NULL DEFAULT 0,
@@ -168,8 +169,8 @@ ALTER TABLE `user_friendship` ADD FOREIGN KEY (userID_2) REFERENCES `user` (`use
 ALTER TABLE `user_educational_institution` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 ALTER TABLE `wandoo_tag` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
 ALTER TABLE `wandoo_tag` ADD FOREIGN KEY (tagID) REFERENCES `tag` (`tagID`);
-ALTER TABLE `wandoo_like` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
-ALTER TABLE `wandoo_like` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
+ALTER TABLE `wandoo_interest` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
+ALTER TABLE `wandoo_interest` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 ALTER TABLE `room_user` ADD FOREIGN KEY (roomID) REFERENCES `room` (`roomID`);
 ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 
@@ -184,7 +185,7 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 -- ALTER TABLE `user_friendship` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `user_educational_institution` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `wandoo_tag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `wandoo_like` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `wandoo_interest` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `tag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `room_user` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -194,7 +195,7 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 
 -- INSERT INTO `wandoo` (`wandooID`,`userID`,`text`,`start_time`,`end_time`,`post_time`,`latitude`,`longitude`) VALUES
 -- ('','','','','','','','');
--- INSERT INTO `user` (`userID`,`facebookID`,`age`,`sex`,`name`,`profile_picture`,`employer`,`job_title`,`email`,`latitude`,`longitude`) VALUES
+-- INSERT INTO `user` (`userID`,`name`,`facebookID`,`email`,`age`,`sex`,`profile_picture`,`employer`,`job_title`,`latitude`,`longitude`) VALUES
 -- ('','','','','','','','','','','');
 -- INSERT INTO `room` (`roomID`,`expiry_time`,`wandooID`) VALUES
 -- ('','','');
@@ -206,7 +207,7 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 -- ('','');
 -- INSERT INTO `wandoo_tag` (`wandooID`,`tagID`) VALUES
 -- ('','');
--- INSERT INTO `wandoo_like` (`wandooID`,`userID`,`selected`,`rejected`) VALUES
+-- INSERT INTO `wandoo_interest` (`wandooID`,`userID`,`selected`,`rejected`) VALUES
 -- ('','','','');
 -- INSERT INTO `tag` (`tagID`,`name`) VALUES
 -- ('','');

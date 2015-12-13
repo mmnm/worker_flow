@@ -15,25 +15,26 @@ describe('GET /api/test', function(){
 // users
 
 describe('POST /api/users', function() {
-  it('should add a user to the database', function() {
+  it('should add a user to the database', function(done) {
     server
       .post('/api/users')
       .send({
-        facebookID : 'fasdgadfgadfg',
         name: 'Pete Zurish',
+        facebookID : 134515,
+        email: 'pete.z@gmail.com',
         age: 28,
         sex: 'M',
         profilePic: 'need a profile pic',
         employer: 'Google',
         jobTitle: 'Software Engineer',
-        email: 'pete.z@gmail.com',
-        educationInstitution: 'University of Toronto',
         latitude: '37.7836675',
-        longitude: '-122.4091699'
+        longitude: '-122.4091699',
+        educationInstitution: 'University of Toronto'
       })
       .expect(200)
       .end(done);
   });
+  // can we create a test to verify that this user is in the database?
 
 });
 
