@@ -6,6 +6,12 @@ module.exports = function (router) {
     res.send();
   });
 
-  router.get('/api/users', user.get);
+  router.get('/api/users/:userID', user.get);
+
+  router.post('/api/users', user.post);
+
+  router.delete('/api/users/:userID', user.delete);
+
+  router.put('/api/users/:userID', user.put);
 
 }

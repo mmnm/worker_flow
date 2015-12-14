@@ -21,19 +21,19 @@ curl -i http://127.0.0.1:8000/api/user/324624
 
 Name | Notes | Example | 
 -----|------------- | --------- |
-facebookID | Uniquely identifies a user on Facebook| 10153381139067956 | 
-name | Full name | John Smith |  
-age | | 28 | 
-sex | | M| 
-profilePic | Image file | ? | 
-employer | | Google | 
-jobTitle |  | Software Engineer | 
-educationInstitution | | Stanford |
+name | Full name | John Smith |
+facebookID | Uniquely identifies a user of Facebook | 10153381139067955 |
+email | | john.smith@yahoo.com |
+age | | 53 |
+sex | | M |
+profilePic | Image file | ? |
+employer | | Google |
+jobTitle | | Stanford |
+latitude | | 37.7836675 |
+longitude | | -122.4091699 |
 friends | POST MVP | |
 interests | POST MVP | |
 likes | POST MVP |  |
-
-
 
 #### Examples
 
