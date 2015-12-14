@@ -73,6 +73,10 @@
 	<string>Main</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Wandoo wants to know your location!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Wandoo wants to know where you are all the time!</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

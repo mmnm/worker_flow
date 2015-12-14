@@ -11,8 +11,9 @@ import UIKit
 import Parse
 import FBSDKCoreKit
 import ParseFacebookUtilsV4
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,32 @@ class ViewController: UIViewController {
 //        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")
 //        //self.navigationController?.navigationBar.frame = CGRectMake(0, 0, 30, 30)
 //        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+
+    var locationManager = CLLocationManager()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        navigationController!.navigationBar.barTintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let userLocation:CLLocation = locations[0]
+        
+        let latitude:CLLocationDegrees = userLocation.coordinate.latitude
+        
+        let longitude:CLLocationDegrees = userLocation.coordinate.longitude
+        
+        print(userLocation.coordinate)
+        
+        //userLocation - there is no need for casting, because we are now using CLLocation object
+
     }
 
     override func didReceiveMemoryWarning() {
