@@ -105,7 +105,7 @@ xdescribe('GET /api/test', function(){
 
 // USERS
 
-xdescribe('POST /api/users', function() {
+describe('POST /api/users', function() {
   it('should add a user to the database', function(done) {
 
     var user = {
