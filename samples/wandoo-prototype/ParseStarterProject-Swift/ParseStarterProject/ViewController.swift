@@ -14,11 +14,15 @@ import ParseFacebookUtilsV4
 
 class ViewController: UIViewController {
 
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        navigationController!.navigationBar.barTintColor = UIColor(red:0.20, green:0.60, blue:0.86, alpha:1.0)
+        //navigationController!.navigationBar.barTintColor = UIColor(red:0.2, green:0.6, blue:0.86, alpha:1.0)
+        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back")
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

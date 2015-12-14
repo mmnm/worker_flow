@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qih-Dc-awY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qih-Dc-awY">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -30,18 +30,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="L6a-bm-lXl">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="eOr-DP-WNl">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6qo-Ep-Oua">
-                                <rect key="frame" x="258" y="7" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="xTP-PA-TSO" kind="show" id="IuO-ZJ-Ytu"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="L6a-bm-lXl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="name" destination="e0Q-nz-bUE" id="pCx-bh-jab"/>
@@ -63,7 +52,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="bottomRight" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="khJ-sc-NNt">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khJ-sc-NNt" id="C4a-rt-hHO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -130,6 +119,7 @@
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVN-db-luc">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem style="plain" id="ovT-Zy-Xm8">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O2A-bN-UQy">
@@ -164,9 +154,11 @@
                                         </button>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="IVN-db-luc" secondAttribute="trailing" constant="-20" id="JhH-KN-XwX"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IVN-db-luc" secondAttribute="bottom" id="Jvy-MC-erb"/>
@@ -178,6 +170,9 @@
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="wtI-x4-k1T">
                             <rect key="frame" x="18" y="7" width="284" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" image="YES"/>
+                            </accessibility>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -227,8 +222,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iK2-YF-dNb">
-                                <rect key="frame" x="53" y="503" width="215" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iK2-YF-dNb">
+                                <rect key="frame" x="49" y="501" width="223" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="iK2-YF-dNb" secondAttribute="height" multiplier="43:9" id="R6Y-Bi-JYM"/>
                                 </constraints>
@@ -237,11 +232,17 @@
                                     <action selector="loginFacebookButtonThatTakesUsToTheLoginAtSafari:" destination="qih-Dc-awY" eventType="touchUpInside" id="seu-Ec-F76"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Wandoo.png" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-cA-GR7">
+                                <rect key="frame" x="47" y="99" width="227" height="45"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.51764705882352946" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="yZE-cA-GR7" firstAttribute="top" secondItem="zBC-5R-IRO" secondAttribute="bottom" constant="34" id="Bvr-3Y-CL6"/>
+                            <constraint firstItem="yZE-cA-GR7" firstAttribute="leading" secondItem="Rru-Da-9Ux" secondAttribute="leadingMargin" constant="29" id="EMl-zq-sty"/>
                             <constraint firstItem="iK2-YF-dNb" firstAttribute="leading" secondItem="Rru-Da-9Ux" secondAttribute="leadingMargin" constant="33" id="IZz-DL-vAq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iK2-YF-dNb" secondAttribute="trailing" constant="32" id="cu9-tN-cev"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yZE-cA-GR7" secondAttribute="trailing" constant="28" id="dYd-et-UJx"/>
                             <constraint firstItem="t6a-LW-n2H" firstAttribute="top" secondItem="iK2-YF-dNb" secondAttribute="bottom" constant="20" id="uo8-19-BNg"/>
                         </constraints>
                     </view>
@@ -279,13 +280,15 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="iNP-1G-LdG"/>
                                         </constraints>
-                                        <state key="normal" title="Send"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="messageSendButtonClicked:" destination="Icf-DR-ry9" eventType="touchUpInside" id="SdA-is-Tn5"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="88f-5e-n07" secondAttribute="trailing" constant="44" id="7M6-iw-3fQ"/>
                                     <constraint firstItem="Ikd-11-sFv" firstAttribute="leading" secondItem="zc4-tP-M7v" secondAttribute="leading" constant="20" id="GQf-O2-8Ve"/>
@@ -298,6 +301,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Vs-49-8nG" userLabel="TableView">
                                 <rect key="frame" x="20" y="40" width="374" height="636"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MessageCell" id="FGf-k1-lEZ">
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
@@ -340,9 +344,11 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UcQ-As-2ES" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LIG-kr-Btz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="back.png" id="LIG-kr-Btz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -355,7 +361,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Rectangle 43 + Login with facebook + Facebook.png" width="479" height="93"/>
+        <image name="Rectangle 43 + Login with facebook + Facebook.png" width="471" height="85"/>
+        <image name="Wandoo.png" width="303" height="55"/>
+        <image name="back.png" width="62" height="64"/>
         <image name="icon_ios_chat_filled.png" width="80" height="80"/>
         <image name="icon_ios_topcharts.png" width="75" height="75"/>
         <image name="icon_ios_user_filled.png" width="97" height="103"/>
