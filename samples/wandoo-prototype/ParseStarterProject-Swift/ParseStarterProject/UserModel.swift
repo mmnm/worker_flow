@@ -8,6 +8,7 @@
 
 import Foundation
 import ParseFacebookUtilsV4
+import CoreLocation
 
 
 /*
@@ -26,12 +27,17 @@ class UserModel {
     var jobTitle: String?
     var education: String?
     var id: String?
+    var email: String?
+    var latitude: Double?
+    var longitude: Double?
+    
+    static let sharedUserInstance = UserModel()
 
     //function -> void
      //name = from api request
     func storeFBDataIntoParse(objectId: String, accessToken: String, completion: (() -> Void)!) {
         
-        let request = FBSDKGraphRequest(graphPath:"me?fields=id,name,gender,education,picture,work,birthday", parameters:nil)
+        let request = FBSDKGraphRequest(graphPath:"me?fields=id,name,gender,education,picture,work,birthday,email", parameters:nil)
         
         // Send request to Facebook
         request.startWithCompletionHandler {
@@ -44,19 +50,21 @@ class UserModel {
             else if let userData = result as? [String:AnyObject] {
                 
                 // Access user data
-                print(userData)
                 self.id = userData["id"] as! String
                 self.name = userData["name"] as? String
-                self.gender = userData["gender"] as? String
                 self.age = self.getAgeFromFBBirthday(userData["birthday"] as! String) as? Int
+                self.email = userData["email"] as? String
                 
-                    
+                var gender = userData["gender"]! as! String
+                self.gender = String(gender[gender.startIndex])
+                
+                
                 if userData["work"] != nil && userData["work"]![0]["employer"]! != nil {
                     self.employer = userData["work"]![0]["employer"]!!["name"] as! String
                 }
                 
                 if userData["work"] != nil && userData["work"]![0]["position"]! != nil {
-                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as! String
+                    self.jobTitle = userData["work"]![0]["position"]!!["name"] as? String
                 }
                 
                 if userData["education"] != nil {
@@ -66,26 +74,50 @@ class UserModel {
                         }
                     }
                 }
+                
+                var params : [String: AnyObject] = [
+                    "name": self.name!,
+                    "facebookID": self.id!,
+                    "email": self.email!,
+                    "age": self.age!,
+                    "sex": self.gender!,
+                    "latitude": NSNull(),
+                    "longitude": NSNull()
+                ]
+                
+                if self.employer != nil {
+                    params["employer"] = self.employer!
+                }
+                
+                if self.jobTitle != nil {
+                    params["jobTitle"] = self.jobTitle!
+                }
+                
+                if self.education != nil {
+                    params["educationInstitution"] = self.education!
+                }
+                
+                let url = NSURL(string: "http://localhost:8000/api/users")
+                
+                let request = NSMutableURLRequest(URL: url!)
+                
+                let session = NSURLSession.sharedSession()
+                request.HTTPMethod = "POST"
+                request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-                let url = NSURL(string: "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token="+String(accessToken))
+                let FBurl = NSURL(string: "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token="+String(accessToken))
                 
                 //photo data
-                if let data = NSData(contentsOfURL: url!) {
-                    //do something with data
+                if let data = NSData(contentsOfURL: FBurl!) {
+                    params["profilePic"] = String(data)
+                    request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
+                    
+                    let task = session.dataTaskWithRequest(request) { data, response, error in
+                        print("success")
+                    }
+                    task.resume()
                 }
                 completion()
-                print(self.name)
-                print(self.gender)
-
-                print(self.photo)
-
-                print(self.employer)
-
-                print(self.education)
-                
-                
-
-                
                     
                     let query = PFQuery(className:"_User")
                     query.getObjectInBackgroundWithId(objectId) {
@@ -102,11 +134,11 @@ class UserModel {
                             user.saveInBackground()
                         }
                     }
-                
             }
         }
     }
-    func getUserInfo() {
+    
+    func postUserInfo() {
         let url = NSURL(string: "http://localhost:3000")
         
         let request = NSMutableURLRequest(URL: url!)
@@ -127,6 +159,27 @@ class UserModel {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
         }
+    }
+    
+    func getUserInfo() {
+        let url = NSURL(string: "http://localhost:8000/api/users/2")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            print(data)
+            var text = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            if let data = text!.dataUsingEncoding(NSUTF8StringEncoding) {
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
+                    //do something with json
+                    
+                } catch {
+                    print("Something went wrong")
+                }
+            }
+        }
+        
+        task.resume()
+        
     }
     
     func getAgeFromFBBirthday(birthdate: String) -> Int {

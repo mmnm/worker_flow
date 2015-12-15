@@ -35,6 +35,18 @@ class ProfileViewController: UIViewController {
             
             self.name.text = String(self.user.id!)
         }
+        user.getUserInfo() 
+        
+//        self.user.storeFBDataIntoParse("GvNZq4udhT", accessToken: "CAAGyoLTet0IBAHysCqVQv3HtaO6SK72Gs1hZCbVfLLxVKTL72h8WF5mAWje4sDSicXFAJDGb72WyarG4eOXZCQbVtIBSTglcaUmlQP1vxnCknDVZBmzQJ3f9KoGRS6N9MvVDrQcPs1CDZBLLs2RsdtjL8g0XZB3LMUbFoymZAVSGm86JuonZC5UcCLMdhQnQN0uzzhEIip0diTsDoBa9lbKRpDgMnOtgLX3k1jikv4KZAkbGFon0ONwhTeThsSHGS9MZD") { () -> Void in
+//            print (self.user.name)
+//            print (self.user.photo)
+//            
+//            self.name.text = String(self.user.id!)
+//            
+//            
+//        }
+        
+        
         // Do any additional setup after loading the view.
     }
 
