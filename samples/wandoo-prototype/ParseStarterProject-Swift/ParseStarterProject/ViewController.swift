@@ -23,6 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 //        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
 
     var locationManager = CLLocationManager()
+    var userModel = UserModel.sharedUserInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +34,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        print(userModel.name)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation:CLLocation = locations[0]
         
-        let latitude:CLLocationDegrees = userLocation.coordinate.latitude
+//        var lat:Double {
+//            get {
+//                toPass.latitude = latitude
+//                print(toPass.latitude)
+//                return latitude
+//            }
+//            set {
+//                latitude = Double(userLocation.coordinate.latitude)
+//            }
+//        }
+//        
+//        var long:Double {
+//            get {
+//                toPass.longitude = longitude
+//                return longitude
+//            }
+//            set {
+//                longitude = Double(userLocation.coordinate.longitude)
+//            }
+//        }
         
-        let longitude:CLLocationDegrees = userLocation.coordinate.longitude
-        
-//        print(userLocation.coordinate)
         
         //userLocation - there is no need for casting, because we are now using CLLocation object
 
