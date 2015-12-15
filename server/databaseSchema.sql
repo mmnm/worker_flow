@@ -1,7 +1,4 @@
-DROP DATABASE IF EXISTS `wandoo`;
-CREATE DATABASE wandoo;
 use wandoo;
-
 -- ---
 -- Globals
 -- ---
@@ -25,6 +22,7 @@ CREATE TABLE `wandoo` (
   `post_time` DATETIME NULL DEFAULT NULL,
   `latitude` DECIMAL(13,10) NULL DEFAULT NULL,
   `longitude` DECIMAL(13,10) NULL DEFAULT NULL,
+  `num_people` INTEGER NULL DEFAULT NULL,
   PRIMARY KEY (`wandooID`)
 );
 
@@ -193,8 +191,8 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 -- Test Data
 -- ---
 
--- INSERT INTO `wandoo` (`wandooID`,`userID`,`text`,`start_time`,`end_time`,`post_time`,`latitude`,`longitude`) VALUES
--- ('','','','','','','','');
+-- INSERT INTO `wandoo` (`wandooID`,`userID`,`text`,`start_time`,`end_time`,`post_time`,`latitude`,`longitude`,`num_people`) VALUES
+-- ('','','','','','','','','');
 -- INSERT INTO `user` (`userID`,`name`,`facebookID`,`email`,`age`,`sex`,`profile_picture`,`employer`,`job_title`,`latitude`,`longitude`) VALUES
 -- ('','','','','','','','','','','');
 -- INSERT INTO `room` (`roomID`,`expiry_time`,`wandooID`) VALUES

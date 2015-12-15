@@ -39,6 +39,9 @@ module.exports = {
         userValues[userAttr[i]] = req.body[i];
       } else if ( i in eduAttr ) {
         eduValues[eduAttr[i]] = req.body[i];
+      } else {
+        res.status('400').send('Wrong parameters');
+        return;
       }
     }
 
@@ -58,8 +61,8 @@ module.exports = {
         console.error(err);
         res.status('400').send('Error with deletion');
       } else {
-        console.log(result1);
-        console.log(result2);
+        // console.log(result1);
+        // console.log(result2);
         res.send();// what if there was no user that had the userID specified?
         // we can use result.affectedRows=0 to check if there was a deletion
       }
@@ -74,7 +77,6 @@ module.exports = {
     };
 
     var locValues = [];
-
     for ( var i in req.body ){
       if ( i in locAttr ) {
         locValues[locAttr[i]] = req.body[i];
@@ -83,7 +85,6 @@ module.exports = {
         return;// is this necessary?  will execution continue further even though we've sent?
       }
     }
-    console.log(locValues);
 
     locValues.push(req.params.userID);
 
@@ -92,7 +93,6 @@ module.exports = {
         console.error(err);
         res.status('400').send('Error with update');
       } else {
-        console.log(result);
         res.send();
       }
     });

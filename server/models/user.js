@@ -9,7 +9,7 @@ module.exports = {
       if ( err ) {
         callback(err);
       } else {
-        callback(null, { results: results });// should we wrap the results like this?
+        callback(null, { data: results });// should we wrap the results like this?
       }
     });
   },
@@ -42,6 +42,9 @@ module.exports = {
   delete : function (userID, callback) {
     var qs1 = "delete from user_educational_institution where userID = ?;"
     var qs2 = "delete from user where userID = ?;"
+    
+    // need to also delete all wandoos associated with a user
+      // though we can also wait for the wandoo to be cleaned up by the worker    
 
     db.query(qs1, userID, function (err, results1) {
       if ( err ) {
