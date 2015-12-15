@@ -41,7 +41,7 @@ TODO
 
 ```json
 
-curl -i http://127.0.0.1:8000/api/articles -H "Content-Type: application/json" -d '[{"title":"TensorFlow and Monetizing Intellectual Property","linkURL":"test","summary":"test","source":"bleh","imgURL":"gah","date":"1995-12-17T11:24:00.000Z","categories":["Startups","bleh","Money","JavaS"]},{"title":"Another Article","linkURL":"test","summary":"test","source":"bleh","imgURL":"gah","date":"1995-12-17T11:24:00.000Z","categories":["Startups","bleh","x"]}]';
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name":"Pete Zurish","facebookID":134515,"email":"pete.z@gmail.com","age":28,"sex":"M","profilePic":"need a profile pic","employer":"Google","jobTitle":"Software Engineer","latitude":"37.7836675","longitude":"-122.4091699","educationInstitution":"University of Toronto"}' localhost:8000/api/users
 
 ```
 #### Usage
@@ -72,7 +72,11 @@ longitude | longitude of user's current position| -122.4091699 |
 #### Usage
 1. For every user request from the client, we will send this PUT request to update the user location (ex. from web application, we can use navigator.geolocation.getCurrentPosition)
 
+#### Example
 
+```json
+curl -i -X PUT -H "Content-Type: application/json" localhost:8000/api/users/21 -d '{"latitude":23.00,"longitude":45.234}'
+```
 
 
 ## Wandoos
@@ -86,14 +90,14 @@ Name | Notes | Example
 offset| The record number to start from | 1 |
 limit | Limits the number of return values | 25 |
 userID | | 222 |
-startTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:31:00.040Z |
-endTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:31:00.040Z |
-postTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP | 2015-12-12T01:31:00.040Z |
+startTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:30:00.040Z |
+endTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T02:30:00.040Z |
+postTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP | 2015-12-12T01:00:00.040Z |
 tag | POST MVP | dinner |
 
 #### Examples
 
-TODO
+TO DO 
 
 ```json
 curl -i http://127.0.0.1:8000/api/wandoos/4256245
@@ -111,12 +115,13 @@ Name | Notes | Example |
 -----|------------- | --------- |
 userID | | 222 | 
 text | Full text of the wandoo (max of x characters)? | Going out to lunch |  
-startTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
-endTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
-postTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:31:00.040Z | 
-tag | | dinner | 
+startTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:30:00.040Z | 
+endTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T02:00:00.040Z | 
+postTime | ISO:8601 String (use Date.prototype.toJSON()) | 2015-12-12T01:00:00.040Z | 
+tag | POST MVP | lunch | 
 latitude | latitude of user's position | 37.7836675 |
 longitude | longitude of user's position | -122.4091699 |
+numPeople | | 4 |
 
 ### DELETE /api/wandoos/\<wandooID\>
 
@@ -194,7 +199,14 @@ userID| An array of userIDs | [235435, 53466]|
 #### Usage
 1. Worker deletes rooms when they have been expired.
 
+## Tags
 
+POST MVP
+
+### GET /api/tags
+
+#### Usage
+1. Client must know the valid tags that a user can submit for a wandoo.
 
 
 

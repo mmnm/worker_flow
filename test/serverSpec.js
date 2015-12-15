@@ -38,6 +38,7 @@ var userEduTableValues = [
 ]
 
 var insertedUserID;
+var retrievedUserID;
 
 var insertUser = function (err, callback) {
   if ( err ) {
@@ -89,11 +90,54 @@ var deleteUsers = function (callback, done) {
   });
 };
 
+var getUser = function (callback) {
+  var qs = 'select * from user order by userID desc limit 1;';
+
+  db.query(qs, function(err, results) {
+    if ( err ) {
+      callback(err);
+    } else {
+      retrievedUserID = results[0].userID;
+      callback();
+    }
+  });
+
+}
+
+var insertWandoo = function (callback) {
+  var qs = 'INSERT INTO `wandoo` (`wandooID`,`userID`,`text`,`start_time`,\
+    `end_time`,`post_time`,`latitude`,`longitude`,`num_people`) VALUES \
+    (?,?,?,?,?,?,?,?,?);';
+
+  // TO DO
+
+  
+
+  db.query(qs, function(err, results) {
+    if ( err ) {
+      callback(err);
+    } else {
+
+    }
+  });
+}
+
+var wandoo = {
+  userID : undefined,
+  text : 'I want to go out to lunch',
+  startTime: '2015-12-12T01:30:00.040Z',
+  endTime : '2015-12-12T02:30:00.040Z',
+  postTime : '2015-12-12T01:00:00.040Z',
+  latitude : 37.7836675,
+  longitude : -122.4091699,
+  numPeople : 4
+}
+
 
 
 // sanity test
 
-xdescribe('GET /api/test', function(){
+describe('GET /api/test', function(){
   it('Sanity test', function(done){
     server
       .get('/api/test')
@@ -146,7 +190,7 @@ describe('GET /api/users:userID', function() {
       // .expect('Content-Type', /json/)
       .expect(200)
       .expect(function (res) {
-        expect(res.body.results[0]).to.deep.equal(userReturnedValues);
+        expect(res.body.data[0]).to.deep.equal(userReturnedValues);
       }) 
       .end(function (err, res) {
         if ( err ) {
@@ -163,8 +207,13 @@ describe('GET /api/users:userID', function() {
 
 
 xdescribe('DELETE /api/users', function() {
+  before(function(done) {
+    getUser(done);
+  });
+
   it('should delete a specified user from the database', function() {
     // insert user into database
+
 
     // send delete request for the userID
 
@@ -174,11 +223,32 @@ xdescribe('DELETE /api/users', function() {
 
 });
 
-xdescribe('PUT /api/users', function() {
+describe('PUT /api/users', function() {
+
+  before(function (done) {
+    getUser(done);
+  });
+
   it('should update a user\'s location in the database', function(done) {
-    // insert user into database
+    // update user location in database
+
+    var userLoc = {
+      latitude: 23.3452534,
+      longitude : -35.4526
+    }
 
     // send put request for the userID 
+
+    server
+      .put('/api/users/' + retrievedUserID)
+      .send(userLoc)
+      .expect(200)
+      .end(function (err, res) {
+        if ( err ) {
+          throw err;
+        }
+        done();
+      });
 
     // verify that the location modifications are reflected in the database
 
@@ -186,7 +256,7 @@ xdescribe('PUT /api/users', function() {
 
 });
 
-// wandoos
+// WANDOOS
 
 xdescribe('GET /api/wandoos', function() {
   it('should return all wandoos', function() {
@@ -202,9 +272,24 @@ xdescribe('GET /api/wandoos', function() {
   });
 });
 
-xdescribe('POST /api/wandoos', function() {
-  it('should add a wandoo to the database', function() {
-
+describe('POST /api/wandoos', function() {
+  before(function (done) {
+    getUser(done);
+  });
+  
+  it('should add a wandoo to the database', function(done) {
+    wandoo.userID = retrievedUserID;
+    console.log('retrieved',retrievedUserID);
+    server
+      .post('/api/wandoos')
+      .send(wandoo)
+      .expect(200)
+      .end(function (err, res) {
+        if ( err ) {
+          throw err;
+        }
+        done();
+      });
   });
 });
 
