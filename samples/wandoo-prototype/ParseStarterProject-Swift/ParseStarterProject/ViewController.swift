@@ -29,7 +29,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         
         print(userModel.name)
+        
+        self.navigationItem.hidesBackButton = true
+//        self.tabBarController?.navigationItem.hidesBackButton = true
+
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        self.navigationItem.hidesBackButton = true
+//    }
+
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
