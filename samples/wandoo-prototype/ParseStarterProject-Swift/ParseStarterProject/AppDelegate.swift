@@ -19,7 +19,6 @@ import ParseFacebookUtilsV4
 
 // If you want to use Crash Reporting - uncomment this line
 // import ParseCrashReporting
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

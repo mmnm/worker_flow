@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Profile View Controller-->
         <scene sceneID="Ncs-Bo-DCh">
             <objects>
                 <viewController id="GE1-r1-u3t" customClass="ProfileViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,29 +30,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="L6a-bm-lXl"/>
+                    <navigationItem key="navigationItem" id="L6a-bm-lXl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="name" destination="e0Q-nz-bUE" id="pCx-bh-jab"/>
                         <outlet property="profileImage" destination="Cfb-Xt-Z0h" id="NMF-9S-aVi"/>
                         <outlet property="userName" destination="e0Q-nz-bUE" id="hVj-18-V4a"/>
+                        <segue destination="xTP-PA-TSO" kind="show" identifier="toSettingsController" id="qgZ-Ma-NdO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtG-mv-UVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5564" y="1165"/>
+            <point key="canvasLocation" x="6308" y="903"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="U7p-YT-ZLt">
             <objects>
                 <tableViewController id="xTP-PA-TSO" customClass="SettingsController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cuX-Mp-SPI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cuX-Mp-SPI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="bottomRight" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="khJ-sc-NNt">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khJ-sc-NNt" id="C4a-rt-hHO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -72,7 +73,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhh-9w-Eh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6880" y="199"/>
+            <point key="canvasLocation" x="6858" y="-230"/>
         </scene>
         <!--Swipe Controller-->
         <scene sceneID="xTD-lm-beX">
@@ -91,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1Y-9S-zeO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4513" y="1544"/>
+            <point key="canvasLocation" x="4881" y="1052"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -119,7 +120,7 @@
                             </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IVN-db-luc">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <color key="backgroundColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.42745098040000001" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem style="plain" id="ovT-Zy-Xm8">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="O2A-bN-UQy">
@@ -154,8 +155,8 @@
                                         </button>
                                     </barButtonItem>
                                 </items>
-                                <color key="tintColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.16078431372549021" green="0.42745098039215684" blue="0.71372549019607845" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.17647058823529413" green="0.47058823529411764" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,10 +184,10 @@
             </objects>
             <point key="canvasLocation" x="5839" y="161"/>
         </scene>
-        <!--View Controller-->
+        <!--Wandoo View Controller-->
         <scene sceneID="rQm-Ta-HwS">
             <objects>
-                <viewController id="uc6-uY-3mG" sceneMemberID="viewController">
+                <viewController id="uc6-uY-3mG" customClass="WandooViewController" customModule="ParseStarterProject_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0Fd-BS-YPq"/>
                         <viewControllerLayoutGuide type="bottom" id="aqn-bk-1xa"/>
@@ -208,7 +209,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMB-yh-yBP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5054" y="1049"/>
+            <point key="canvasLocation" x="5482" y="903"/>
         </scene>
         <!--FacebookLoginController-->
         <scene sceneID="m45-gS-bIz">
@@ -218,7 +219,7 @@
                         <viewControllerLayoutGuide type="top" id="zBC-5R-IRO"/>
                         <viewControllerLayoutGuide type="bottom" id="t6a-LW-n2H"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rru-Da-9Ux">
+                    <view key="view" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Rru-Da-9Ux">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -232,11 +233,12 @@
                                     <action selector="loginFacebookButtonThatTakesUsToTheLoginAtSafari:" destination="qih-Dc-awY" eventType="touchUpInside" id="seu-Ec-F76"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Wandoo.png" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-cA-GR7">
-                                <rect key="frame" x="47" y="99" width="227" height="45"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Wandoo.png" translatesAutoresizingMaskIntoConstraints="NO" id="yZE-cA-GR7">
+                                <rect key="frame" x="35" y="98" width="241" height="54"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16862745098039217" green="0.51764705882352946" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.19215686274509805" green="0.42745098039215684" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="yZE-cA-GR7" firstAttribute="top" secondItem="zBC-5R-IRO" secondAttribute="bottom" constant="34" id="Bvr-3Y-CL6"/>
                             <constraint firstItem="yZE-cA-GR7" firstAttribute="leading" secondItem="Rru-Da-9Ux" secondAttribute="leadingMargin" constant="29" id="EMl-zq-sty"/>
@@ -253,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAP-ul-j4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4752" y="-199"/>
+            <point key="canvasLocation" x="4780" y="161"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="Rxp-00-u12">
@@ -298,8 +300,8 @@
                                     <constraint firstItem="88f-5e-n07" firstAttribute="top" secondItem="zc4-tP-M7v" secondAttribute="top" constant="15" id="v6z-T2-7lu"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Vs-49-8nG" userLabel="TableView">
-                                <rect key="frame" x="20" y="40" width="374" height="636"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Vs-49-8nG" userLabel="TableView">
+                                <rect key="frame" x="20" y="84" width="374" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.13725490200000001" green="0.43137254899999999" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -318,10 +320,10 @@
                         <constraints>
                             <constraint firstItem="4Vs-49-8nG" firstAttribute="top" secondItem="KdO-sW-Etq" secondAttribute="bottom" constant="20" id="60Y-ej-aT0"/>
                             <constraint firstItem="zc4-tP-M7v" firstAttribute="trailing" secondItem="Dng-e7-g6N" secondAttribute="trailingMargin" constant="20" id="6oc-V5-bOT"/>
-                            <constraint firstItem="zc4-tP-M7v" firstAttribute="leading" secondItem="Dng-e7-g6N" secondAttribute="leadingMargin" id="CGb-HV-gi7"/>
                             <constraint firstItem="zc4-tP-M7v" firstAttribute="top" secondItem="4Vs-49-8nG" secondAttribute="bottom" id="Cm5-pJ-cQm"/>
-                            <constraint firstItem="4Vs-49-8nG" firstAttribute="leading" secondItem="Dng-e7-g6N" secondAttribute="leadingMargin" id="eho-Nn-YYD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Vs-49-8nG" secondAttribute="trailing" id="onS-a5-BXi"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4Vs-49-8nG" secondAttribute="leading" id="poK-Gd-lPH"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="zc4-tP-M7v" secondAttribute="leading" id="qZA-fq-UsQ"/>
                             <constraint firstItem="V84-Ve-zBZ" firstAttribute="top" secondItem="zc4-tP-M7v" secondAttribute="bottom" id="w6O-o0-nAe"/>
                         </constraints>
                     </view>
@@ -337,18 +339,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gg0-H6-FqO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6412" y="-33"/>
+            <point key="canvasLocation" x="5886" y="987"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vYf-vO-lWg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UcQ-As-2ES" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="back.png" id="LIG-kr-Btz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" backIndicatorImage="0F23F5D1-BB62-4BB7-B95B-A64DFE7C2D59" id="LIG-kr-Btz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.13725490196078433" green="0.43137254901960786" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.18039215689999999" green="0.47843137250000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -361,9 +363,24 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0F23F5D1-BB62-4BB7-B95B-A64DFE7C2D59" width="62" height="64">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWHs2MiwgNjR90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoYohsc
+gAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEHxmaWxlOi8vL0FwcGxpY2F0
+aW9ucy9YY29kZS5hcHAvQ29udGVudHMvUGx1Z0lucy9JREVJbnRlcmZhY2VCdWlsZGVyS2l0LmlkZXBs
+dWdpbi9Db250ZW50cy9SZXNvdXJjZXMvSUJNaXNzaW5nSW1hZ2VHbHlwaC50aWZm0icoKSpaJGNsYXNz
+bmFtZVgkY2xhc3Nlc1VOU1VSTKIpK1hOU09iamVjdNInKC0uV05TQXJyYXmiLSvTMDEKMjM0V05TV2hp
+dGVcTlNDb2xvclNwYWNlRDAgMAAQA4AL0icoNjdXTlNDb2xvcqI2K9InKDk6V05TSW1hZ2WiOStfEA9O
+U0tleWVkQXJjaGl2ZXLRPT5Ucm9vdIABAAgAEQAaACMALQAyADcARQBLAFYAXQBkAHEAeACAAIIAhACJ
+AIsAjQCWAJsApgCoAKoArACxALQAtgC4ALoAvADDAMsA1wDZANsA3QFcAWEBbAF1AXsBfgGHAYwBlAGX
+AZ4BpgGzAbgBugG8AcEByQHMAdEB2QHcAe4B8QH2AAAAAAAAAgEAAAAAAAAAPwAAAAAAAAAAAAAAAAAA
+Afg
+</mutableData>
+        </image>
         <image name="Rectangle 43 + Login with facebook + Facebook.png" width="471" height="85"/>
         <image name="Wandoo.png" width="303" height="55"/>
-        <image name="back.png" width="62" height="64"/>
         <image name="icon_ios_chat_filled.png" width="80" height="80"/>
         <image name="icon_ios_topcharts.png" width="75" height="75"/>
         <image name="icon_ios_user_filled.png" width="97" height="103"/>
