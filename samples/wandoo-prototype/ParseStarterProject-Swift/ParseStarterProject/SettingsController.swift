@@ -22,7 +22,6 @@ class SettingsController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +36,9 @@ class SettingsController: UITableViewController {
         return settings.count
     }
 
+    @IBAction func logoutButton() {
+        
+    }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
@@ -52,8 +54,7 @@ class SettingsController: UITableViewController {
             print("Current user token=\(FBSDKAccessToken.currentAccessToken().tokenString)")
             let loginManager = FBSDKLoginManager()
             loginManager.logOut()
-            print("Current user token=\(FBSDKAccessToken.currentAccessToken())")
-            
+            print("User Logged Out!")
             performSegueWithIdentifier("backToLogin", sender: nil)
         }
     }

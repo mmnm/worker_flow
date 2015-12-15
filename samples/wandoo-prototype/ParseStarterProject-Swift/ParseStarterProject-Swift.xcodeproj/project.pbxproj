@@ -14,15 +14,15 @@
 		10F9FDF41C18F3B900D3C4CC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */; };
 		10F9FE731C1B83FF00D3C4CC /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */; };
 		10F9FE7B1C1B9C9600D3C4CC /* icon_ios_chat_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE751C1B9C9600D3C4CC /* icon_ios_chat_filled.png */; };
-		10F9FE7D1C1B9C9600D3C4CC /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE771C1B9C9600D3C4CC /* back.png */; };
 		10F9FE7E1C1B9C9600D3C4CC /* icon_ios_topcharts.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE781C1B9C9600D3C4CC /* icon_ios_topcharts.png */; };
-		10F9FE7F1C1B9C9600D3C4CC /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE791C1B9C9600D3C4CC /* settings.png */; };
 		10F9FE801C1B9C9600D3C4CC /* icon_ios_user_filled.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE7A1C1B9C9600D3C4CC /* icon_ios_user_filled.png */; };
-		10F9FE821C1BAA8E00D3C4CC /* Rectangle 43 + Login with facebook + Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 10F9FE811C1BAA8E00D3C4CC /* Rectangle 43 + Login with facebook + Facebook.png */; };
-		814C3ACA1B69877600E307BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC61B69877600E307BB /* Main.storyboard */; };
 		814C3ACB1B69877600E307BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 814C3AC81B69877600E307BB /* Images.xcassets */; };
 		81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814A1A49DA1800E65899 /* AppDelegate.swift */; };
 		81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA814C1A49DA1800E65899 /* ViewController.swift */; };
+		BECE401E1C1F578100894D06 /* WandooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECE401D1C1F578100894D06 /* WandooViewController.swift */; };
+		BECE40231C1F6A3300894D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BECE40211C1F6A3300894D06 /* Main.storyboard */; };
+		BEF8B9511C1CDEB90080D0C7 /* Rectangle 43 + Login with facebook + Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF8B9501C1CDEB90080D0C7 /* Rectangle 43 + Login with facebook + Facebook.png */; };
+		BEF8B9531C1CDFD60080D0C7 /* Wandoo.png in Resources */ = {isa = PBXBuildFile; fileRef = BEF8B9521C1CDFD60080D0C7 /* Wandoo.png */; };
 		DFDFE3936AAAE810E5AFD4D0 /* Pods_ParseStarterProject_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFBAF29DB87720BAD473C6C /* Pods_ParseStarterProject_Swift.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,19 +35,19 @@
 		10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
 		10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		10F9FE751C1B9C9600D3C4CC /* icon_ios_chat_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ios_chat_filled.png; sourceTree = "<group>"; };
-		10F9FE771C1B9C9600D3C4CC /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		10F9FE781C1B9C9600D3C4CC /* icon_ios_topcharts.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ios_topcharts.png; sourceTree = "<group>"; };
-		10F9FE791C1B9C9600D3C4CC /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		10F9FE7A1C1B9C9600D3C4CC /* icon_ios_user_filled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ios_user_filled.png; sourceTree = "<group>"; };
-		10F9FE811C1BAA8E00D3C4CC /* Rectangle 43 + Login with facebook + Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 43 + Login with facebook + Facebook.png"; sourceTree = "<group>"; };
 		731D19D7D6D60F4A3116C2FD /* Pods-ParseStarterProject-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseStarterProject-Swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseStarterProject-Swift/Pods-ParseStarterProject-Swift.release.xcconfig"; sourceTree = "<group>"; };
-		814C3AC71B69877600E307BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		814C3AC81B69877600E307BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		814C3AC91B69877600E307BB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		81BA81451A49DA1800E65899 /* ParseStarterProject-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParseStarterProject-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA814A1A49DA1800E65899 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA814C1A49DA1800E65899 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BE0FA3C6CE392870616C0E55 /* Pods-ParseStarterProject-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseStarterProject-Swift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseStarterProject-Swift/Pods-ParseStarterProject-Swift.debug.xcconfig"; sourceTree = "<group>"; };
+		BECE401D1C1F578100894D06 /* WandooViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WandooViewController.swift; sourceTree = "<group>"; };
+		BECE40221C1F6A3300894D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		BEF8B9501C1CDEB90080D0C7 /* Rectangle 43 + Login with facebook + Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle 43 + Login with facebook + Facebook.png"; sourceTree = "<group>"; };
+		BEF8B9521C1CDFD60080D0C7 /* Wandoo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wandoo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +74,10 @@
 		10F9FE741C1B95D400D3C4CC /* images */ = {
 			isa = PBXGroup;
 			children = (
-				10F9FE811C1BAA8E00D3C4CC /* Rectangle 43 + Login with facebook + Facebook.png */,
 				10F9FE751C1B9C9600D3C4CC /* icon_ios_chat_filled.png */,
-				10F9FE771C1B9C9600D3C4CC /* back.png */,
+				BEF8B9501C1CDEB90080D0C7 /* Rectangle 43 + Login with facebook + Facebook.png */,
+				BEF8B9521C1CDFD60080D0C7 /* Wandoo.png */,
 				10F9FE781C1B9C9600D3C4CC /* icon_ios_topcharts.png */,
-				10F9FE791C1B9C9600D3C4CC /* settings.png */,
 				10F9FE7A1C1B9C9600D3C4CC /* icon_ios_user_filled.png */,
 			);
 			name = images;
@@ -126,10 +125,11 @@
 				10F9FE741C1B95D400D3C4CC /* images */,
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
 				81BA814C1A49DA1800E65899 /* ViewController.swift */,
-				814C3AC61B69877600E307BB /* Main.storyboard */,
+				BECE401D1C1F578100894D06 /* WandooViewController.swift */,
 				10F9FE721C1B83FF00D3C4CC /* ChatViewController.swift */,
 				10F9FDF31C18F3B900D3C4CC /* ProfileViewController.swift */,
 				10F9FDEF1C18ECD800D3C4CC /* UserModel.swift */,
+				BECE40211C1F6A3300894D06 /* Main.storyboard */,
 				10F9FDEB1C18AFBB00D3C4CC /* SettingsController.swift */,
 				10F9FDE31C17BC9D00D3C4CC /* FacebookLoginController.swift */,
 				10F9FDE51C17DFF700D3C4CC /* SwipeController.swift */,
@@ -199,14 +199,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				814C3ACA1B69877600E307BB /* Main.storyboard in Resources */,
-				10F9FE7F1C1B9C9600D3C4CC /* settings.png in Resources */,
+				BEF8B9511C1CDEB90080D0C7 /* Rectangle 43 + Login with facebook + Facebook.png in Resources */,
 				10F9FE7E1C1B9C9600D3C4CC /* icon_ios_topcharts.png in Resources */,
 				10F9FE801C1B9C9600D3C4CC /* icon_ios_user_filled.png in Resources */,
-				10F9FE7D1C1B9C9600D3C4CC /* back.png in Resources */,
 				814C3ACB1B69877600E307BB /* Images.xcassets in Resources */,
+				BECE40231C1F6A3300894D06 /* Main.storyboard in Resources */,
 				10F9FE7B1C1B9C9600D3C4CC /* icon_ios_chat_filled.png in Resources */,
-				10F9FE821C1BAA8E00D3C4CC /* Rectangle 43 + Login with facebook + Facebook.png in Resources */,
+				BEF8B9531C1CDFD60080D0C7 /* Wandoo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +281,7 @@
 				10F9FDE61C17DFF700D3C4CC /* SwipeController.swift in Sources */,
 				10F9FDF01C18ECD800D3C4CC /* UserModel.swift in Sources */,
 				10F9FE731C1B83FF00D3C4CC /* ChatViewController.swift in Sources */,
+				BECE401E1C1F578100894D06 /* WandooViewController.swift in Sources */,
 				10F9FDEC1C18AFBB00D3C4CC /* SettingsController.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* ViewController.swift in Sources */,
 				10F9FDF41C18F3B900D3C4CC /* ProfileViewController.swift in Sources */,
@@ -293,13 +293,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		814C3AC61B69877600E307BB /* Main.storyboard */ = {
+		BECE40211C1F6A3300894D06 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				814C3AC71B69877600E307BB /* Base */,
+				BECE40221C1F6A3300894D06 /* Base */,
 			);
 			name = Main.storyboard;
-			path = ../Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

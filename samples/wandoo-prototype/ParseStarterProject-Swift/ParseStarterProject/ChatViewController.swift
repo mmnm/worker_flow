@@ -12,6 +12,7 @@ import Parse
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
+    
     @IBOutlet weak var messageTableView: UITableView!
     
     @IBOutlet weak var messageTextView: UIView!
@@ -32,7 +33,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        navigationItem.titleView = UIImageView(image: UIImage(named: "chats"))
+
         self.messageTableView.dataSource = self
         self.messageTableView.delegate = self
         
