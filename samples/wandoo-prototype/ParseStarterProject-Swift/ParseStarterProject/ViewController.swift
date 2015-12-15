@@ -15,13 +15,6 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        self.navigationController?.navigationBar.backIndicatorImage = UIImage(named: "back")
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")
-//        //self.navigationController?.navigationBar.frame = CGRectMake(0, 0, 30, 30)
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-
     var locationManager = CLLocationManager()
     var userModel = UserModel.sharedUserInstance
     
