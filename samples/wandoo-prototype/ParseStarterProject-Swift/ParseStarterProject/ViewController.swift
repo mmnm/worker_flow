@@ -43,7 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let longitude:CLLocationDegrees = userLocation.coordinate.longitude
         
-        print(userLocation.coordinate)
+//        print(userLocation.coordinate)
         
         //userLocation - there is no need for casting, because we are now using CLLocation object
 

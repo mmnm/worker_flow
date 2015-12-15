@@ -3,6 +3,6 @@ var config = require('./config');
 
 module.exports = mysql.createConnection({
   user: 'root',
-  password: '',
+  password: 'ramen',
   database: 'wandoo'
 });

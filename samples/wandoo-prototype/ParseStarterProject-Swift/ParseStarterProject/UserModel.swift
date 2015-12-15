@@ -106,7 +106,8 @@ class UserModel {
             }
         }
     }
-    func getUserInfo() {
+    
+    func postUserInfo() {
         let url = NSURL(string: "http://localhost:3000")
         
         let request = NSMutableURLRequest(URL: url!)
@@ -127,6 +128,27 @@ class UserModel {
         let task = session.dataTaskWithRequest(request) { data, response, error in
             
         }
+    }
+    
+    func getUserInfo() {
+        let url = NSURL(string: "http://localhost:8000/api/users/2")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
+            print(data)
+            var text = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            if let data = text!.dataUsingEncoding(NSUTF8StringEncoding) {
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
+                    print(json!["results"]!)
+                    
+                } catch {
+                    print("Something went wrong")
+                }
+            }
+        }
+        
+        task.resume()
+        
     }
     
     func getAgeFromFBBirthday(birthdate: String) -> Int {
