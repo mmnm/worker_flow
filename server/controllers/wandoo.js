@@ -1,4 +1,5 @@
 var wandoo = require('../models/wandoo.js');
+var util = require('../util');
 
 var getQueryCB = function (err, result, res) {
     if (err) {
@@ -46,7 +47,7 @@ module.exports = {
       if ( i in wandooAttr ) {
   
         if (/.*?Time/.exec(i)) {
-          wandooValues[wandooAttr[i]] = req.body[i].substring(0,10) + ' ' + req.body[i].substring(11, 19);
+          wandooValues[wandooAttr[i]] = util.isoDateToMySQL(req.body[i]);
         } else {
           wandooValues[wandooAttr[i]] = req.body[i];
         }

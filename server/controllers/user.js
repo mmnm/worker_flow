@@ -5,7 +5,7 @@ module.exports = {
   get : function (req, res) {
 
     if (req.params.userID) {
-      user.getByFBUserID(req.params.userID, function (err, result) {
+      user.getByUserID(req.params.userID, function (err, result) {
         if ( err ) {
           console.error(err);
           res.status('400').send('There was an error');

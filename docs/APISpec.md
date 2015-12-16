@@ -220,6 +220,12 @@ Name| Notes | Example
 wandooID| | 352436|
 userID| An array of userIDs | [235435, 53466]| 
 
+#### Examples
+
+```json
+curl -i -X POST -H 'Content-Type: application/json' localhost:8000/api/rooms -d '{"wandooID":1,"userID":1}'
+```
+
 #### Usage
 1. When a host has selected a guest for the hosts's wandoo, the room will be created with the host userIDs and the selected guest userIDs.
 
@@ -230,7 +236,7 @@ userID| An array of userIDs | [235435, 53466]|
 
 ## Tags
 
-POST MVP
+### POST MVP
 
 ### GET /api/tags
 
