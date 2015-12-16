@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import FBSDKLoginKit
 import ParseFacebookUtilsV4
 import Parse
 
@@ -53,7 +54,15 @@ class FacebookLoginController: UIViewController {
         if self.navigationController != nil {
             self.navigationController!.navigationBarHidden = true
         }
+        
+        print(FBSDKAccessToken.currentAccessToken() == nil)
  
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            self.performSegueWithIdentifier("LoginFacebook", sender: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
