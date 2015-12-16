@@ -13,7 +13,21 @@ module.exports = {
   getAll : function (callback) {
     var qs = "select room.*,userID from room inner join room_user on (room.roomID = room_user.roomID);"
     queryBuilder(qs, [], callback);
+  },
 
+  getByRoom : function (roomID, callback) {
+    var qs = "select * from room where roomID = ?;";
+    queryBuilder(qs, roomID, callback);
+  },
+
+  getByUserID : function (userID, callback) {
+    var qs = "select * from room_user where userID = ?;";
+    queryBuilder(qs, userID, callback);
+  },
+
+  getByWandooID : function (wandooID, callback) {
+    var qs = "select * from room where wandooID = ?;";
+    queryBuilder(qs, wandooID, callback);
   },
 
   create : function (roomData, roomUserData, callback) {
