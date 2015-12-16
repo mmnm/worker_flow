@@ -1,15 +1,31 @@
 var wandoo = require('../models/wandoo.js');
 
+var getQueryCB = function (err, result, res) {
+    if (err) {
+      console.error(err);
+      res.status('400').send('There was an error with selection');
+    } else {
+      res.json({data : result});
+    }
+}
+
 module.exports = {
   get : function (req, res) {
-    wandoo.get(function (err, result) {
-      if (err) {
-        console.error(err);
-        res.status('400').send('There was an error with selection');
-      } else {
-        res.send(result);
-      }
-    });
+    if (req.query.offset && req.query.limit && !req.query.userID) {
+      wandoo.getPartialRes([+req.query.offset, +req.query.limit], function (err, result) {
+        getQueryCB(err, result, res); // need to wrap this function so that I can pass res to my callback
+      });
+    } else if (!req.query.offset && !req.query.limit && req.query.userID) {
+      wandoo.getByUserID(+req.query.userID, function (err, result) {
+        getQueryCB(err, result, res);
+      });
+    } else if (!Object.keys(req.query).length) {
+      wandoo.getAll(function (err, result) {
+        getQueryCB(err, result, res);
+      });
+    } else {
+      res.status('400').send('Wrong parameters');
+    } // can account for other edge cases later if necessary
   },
 
   post : function (req, res) {
@@ -27,7 +43,6 @@ module.exports = {
     var wandooValues = [];
     
     for ( var i in req.body ) {
-      console.log(i);
       if ( i in wandooAttr ) {
   
         if (/.*?Time/.exec(i)) {
@@ -42,7 +57,7 @@ module.exports = {
       }
     }
 
-    wandoo.post(wandooValues, function (err, result) {
+    wandoo.create(wandooValues, function (err, result) {
       if (err) {
         console.error(err);
         res.status('400').send('There was an error with insertion');

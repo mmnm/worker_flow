@@ -8,6 +8,8 @@ module.exports = function (router) {
     res.send();
   });
 
+  router.get('/api/users', user.get)
+
   router.get('/api/users/:userID', user.get);
 
   router.post('/api/users', user.post);
@@ -22,6 +24,16 @@ module.exports = function (router) {
 
   router.delete('/api/wandoos/:wandooID', wandoo.delete);
 
-  // router.get('/api/interested', )
+  router.get('/api/interested', interested.get);
+
+  router.post('/api/interested', interested.post);
+
+  router.put('/api/interested/:wandooID/:userID', interested.put);
+
+  router.get('/api/rooms/:roomID', room.get);
+
+  router.post('/api/rooms, room.post', room.post);
+
+  router.delete('/api/rooms/:roomID', room.delete);
 
 }
