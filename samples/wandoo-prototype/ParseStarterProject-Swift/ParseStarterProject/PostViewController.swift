@@ -26,7 +26,26 @@ class PostViewController: UIViewController {
     }
     
     func buttonAction(send: UIButton!) {
-        self.performSegueWithIdentifier("toMainController", sender: self)
+        self.performSegueWithIdentifier("toWandooController", sender: self)
     }
 
+    @IBAction func cancelPeopleUnwind(segue:UIStoryboardSegue) {
+    }    
+    
+    @IBAction func submitPeopleUnwind(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func cancelTimeUnwind(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func submitTimeUnwind(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func cancelLocationUnwind(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func submitLocationUnwind(segue:UIStoryboardSegue) {
+    }
+    
+    
 }
