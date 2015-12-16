@@ -203,8 +203,6 @@ rejected| 1 indicates that a host has selected a user, 0 indicates that host has
 
 ### GET /api/rooms/\<roomID\>
 
--- CURRENTLY IMPLEMENTED TO GET ALL ROOMS
-
 #### Parameters
 
 Name | Notes | Example
