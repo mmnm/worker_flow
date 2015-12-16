@@ -203,6 +203,8 @@ rejected| 1 indicates that a host has selected a user, 0 indicates that host has
 
 ### GET /api/rooms/\<roomID\>
 
+-- CURRENTLY IMPLEMENTED TO GET ALL ROOMS
+
 #### Parameters
 
 Name | Notes | Example
@@ -229,7 +231,27 @@ curl -i -X POST -H 'Content-Type: application/json' localhost:8000/api/rooms -d 
 #### Usage
 1. When a host has selected a guest for the hosts's wandoo, the room will be created with the host userIDs and the selected guest userIDs.
 
+### PUT /api/rooms
+
+#### Payload
+
+Name| Notes | Example
+----|-------|--------
+userID| NEED TO VERIFY IF WE NEED THIS - should prob be an array | 2354| 
+
+#### Examples
+
+```json
+curl -i -X POST -H 'Content-Type: application/json' localhost:8000/api/rooms -d '{"wandooID":1,"userID":1}'
+```
+
 ### DELETE /api/rooms/\<roomID\>
+
+#### Examples
+
+```json
+curl -i -X DELETE localhost:8000/api/rooms/3
+```
 
 #### Usage
 1. Worker deletes rooms when they have been expired.

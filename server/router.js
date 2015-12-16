@@ -31,10 +31,12 @@ module.exports = function (router) {
 
   router.put('/api/interested/:wandooID/:userID', interested.put);
 
-  router.get('/api/rooms/:roomID', room.get);
+  router.get('/api/rooms', room.get); // need to change to specify roomID
 
   router.post('/api/rooms', room.post);
 
   router.delete('/api/rooms/:roomID', room.delete);
+
+  router.put('/api/rooms/:roomID', room.put);
 
 }
