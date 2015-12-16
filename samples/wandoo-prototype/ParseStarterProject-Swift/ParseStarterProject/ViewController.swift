@@ -17,6 +17,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     var locationManager = CLLocationManager()
     var userModel = UserModel.sharedUserInstance
+    var wandooModel = WandooModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        print(userModel.name)
-        
         self.navigationItem.hidesBackButton = true
 //        self.tabBarController?.navigationItem.hidesBackButton = true
-
     }
     
 //    override func viewDidAppear(animated: Bool) {
@@ -43,29 +41,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let userLocation:CLLocation = locations[0]
         
-//        var lat:Double {
-//            get {
-//                toPass.latitude = latitude
-//                print(toPass.latitude)
-//                return latitude
-//            }
-//            set {
-//                latitude = Double(userLocation.coordinate.latitude)
-//            }
-//        }
-//        
-//        var long:Double {
-//            get {
-//                toPass.longitude = longitude
-//                return longitude
-//            }
-//            set {
-//                longitude = Double(userLocation.coordinate.longitude)
-//            }
-//        }
-        
-        
-        //userLocation - there is no need for casting, because we are now using CLLocation object
+        userModel.latitude = userLocation.coordinate.latitude
+        userModel.longitude = userLocation.coordinate.longitude
 
     }
 

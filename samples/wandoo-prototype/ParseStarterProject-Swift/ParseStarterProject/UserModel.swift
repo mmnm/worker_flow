@@ -35,6 +35,9 @@ class UserModel {
 
     //function -> void
      //name = from api request
+    func getName() ->String {
+        return self.name!
+    }
     func storeFBDataIntoParse(objectId: String, accessToken: String, completion: (() -> Void)!) {
         
         let request = FBSDKGraphRequest(graphPath:"me?fields=id,name,gender,education,picture,work,birthday,email", parameters:nil)
@@ -75,7 +78,7 @@ class UserModel {
                     }
                 }
                 
-                var params : [String: AnyObject] = [
+                var userInfo : [String: AnyObject] = [
                     "name": self.name!,
                     "facebookID": self.id!,
                     "email": self.email!,
@@ -86,15 +89,15 @@ class UserModel {
                 ]
                 
                 if self.employer != nil {
-                    params["employer"] = self.employer!
+                    userInfo["employer"] = self.employer!
                 }
                 
                 if self.jobTitle != nil {
-                    params["jobTitle"] = self.jobTitle!
+                    userInfo["jobTitle"] = self.jobTitle!
                 }
                 
                 if self.education != nil {
-                    params["educationInstitution"] = self.education!
+                    userInfo["educationInstitution"] = self.education!
                 }
                 
                 let url = NSURL(string: "http://localhost:8000/api/users")
@@ -109,8 +112,8 @@ class UserModel {
                 
                 //photo data
                 if let data = NSData(contentsOfURL: FBurl!) {
-                    params["profilePic"] = String(data)
-                    request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
+                    userInfo["profilePic"] = String(data)
+                    request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(userInfo, options: [])
                     
                     let task = session.dataTaskWithRequest(request) { data, response, error in
                         print("success")
@@ -119,59 +122,35 @@ class UserModel {
                 }
                 completion()
                     
-                    let query = PFQuery(className:"_User")
-                    query.getObjectInBackgroundWithId(objectId) {
-                        (user: PFObject?, error: NSError?) -> Void in
-                        if error != nil {
-                            print(error)
-                        } else if let user = user {
-                            user["name"] = self.name!
-                            user["gender"] = self.gender!
-                            user["education"] = self.education!
-                            user["age"] = self.age!
-//                            user["photo"] = self.photo
-
-                            user.saveInBackground()
-                        }
-                    }
+//                    let query = PFQuery(className:"_User")
+//                    query.getObjectInBackgroundWithId(objectId) {
+//                        (user: PFObject?, error: NSError?) -> Void in
+//                        if error != nil {
+//                            print(error)
+//                        } else if let user = user {
+//                            user["name"] = self.name!
+//                            user["gender"] = self.gender!
+//                            user["education"] = self.education!
+//                            user["age"] = self.age!
+////                            user["photo"] = self.photo
+//
+//                            user.saveInBackground()
+//                        }
+//                    }
             }
         }
     }
     
-    func postUserInfo() {
-        let url = NSURL(string: "http://localhost:3000")
-        
-        let request = NSMutableURLRequest(URL: url!)
-        
-        let session = NSURLSession.sharedSession()
-        request.HTTPMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        
-        var params : [String: AnyObject] = [
-            "email" : "greekepistles@wandoo.com",
-            "password" : "wandoo123"
-        ]
-        
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(params, options: [])
-        
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            
-        }
-    }
-    
-    func getUserInfo() {
-        let url = NSURL(string: "http://localhost:8000/api/users/2")
+    func getUserInfo(facebookID: String, completion: (result: NSDictionary) -> Void) {
+        let url = NSURL(string: "http://localhost:8000/api/users/?facebookID=" + facebookID)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
-            print(data)
-            var text = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            if let data = text!.dataUsingEncoding(NSUTF8StringEncoding) {
+            
+            if let data = data {
                 do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
-                    //do something with json
-                    
+                    let parsedData = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
+                    let unwrappedData = parsedData!["data"]![0] as! NSDictionary
+                    completion(result: unwrappedData)
                 } catch {
                     print("Something went wrong")
                 }
