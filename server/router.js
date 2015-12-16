@@ -1,6 +1,7 @@
 var user = require('./controllers/user');
 var wandoo = require('./controllers/wandoo');
 var interested = require('./controllers/interested');
+var room = require('./controllers/room');
 
 module.exports = function (router) {
   router.get('/api/test', function (req, res) {
