@@ -1,3 +1,5 @@
+drop database if exists `wandoo`;
+create database `wandoo`;
 use wandoo;
 -- ---
 -- Globals
@@ -89,13 +91,13 @@ CREATE TABLE `user_friendship` (
 );
 
 -- ---
--- Table 'user_educational_institution'
+-- Table 'user_education'
 -- 
 -- ---
 
-DROP TABLE IF EXISTS `user_educational_institution`;
+DROP TABLE IF EXISTS `user_education`;
     
-CREATE TABLE `user_educational_institution` (
+CREATE TABLE `user_education` (
   `userID` INTEGER NULL DEFAULT NULL,
   `institution_name` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`userID`, `institution_name`)
@@ -164,7 +166,7 @@ ALTER TABLE `room` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
 ALTER TABLE `user_interest` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 ALTER TABLE `user_friendship` ADD FOREIGN KEY (userID_1) REFERENCES `user` (`userID`);
 ALTER TABLE `user_friendship` ADD FOREIGN KEY (userID_2) REFERENCES `user` (`userID`);
-ALTER TABLE `user_educational_institution` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
+ALTER TABLE `user_education` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 ALTER TABLE `wandoo_tag` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
 ALTER TABLE `wandoo_tag` ADD FOREIGN KEY (tagID) REFERENCES `tag` (`tagID`);
 ALTER TABLE `wandoo_interest` ADD FOREIGN KEY (wandooID) REFERENCES `wandoo` (`wandooID`);
@@ -181,7 +183,7 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 -- ALTER TABLE `room` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `user_interest` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `user_friendship` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
--- ALTER TABLE `user_educational_institution` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+-- ALTER TABLE `user_education` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `wandoo_tag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `wandoo_interest` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 -- ALTER TABLE `tag` ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -201,7 +203,7 @@ ALTER TABLE `room_user` ADD FOREIGN KEY (userID) REFERENCES `user` (`userID`);
 -- ('','');
 -- INSERT INTO `user_friendship` (`userID_1`,`userID_2`) VALUES
 -- ('','');
--- INSERT INTO `user_educational_institution` (`userID`,`institution_name`) VALUES
+-- INSERT INTO `user_education` (`userID`,`institution_name`) VALUES
 -- ('','');
 -- INSERT INTO `wandoo_tag` (`wandooID`,`tagID`) VALUES
 -- ('','');

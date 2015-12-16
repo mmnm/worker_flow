@@ -39,6 +39,7 @@ var userEduTableValues = [
 
 var insertedUserID;
 var retrievedUserID;
+var retrievedWandooID;
 
 var insertUser = function (err, callback) {
   if ( err ) {
@@ -98,6 +99,20 @@ var getUser = function (callback) {
       callback(err);
     } else {
       retrievedUserID = results[0].userID;
+      callback();
+    }
+  });
+
+}
+
+var getWandoo = function (callback) {
+  var qs = 'select * from user order by wandooID desc limit 1;';
+
+  db.query(qs, function(err, results) {
+    if ( err ) {
+      callback(err);
+    } else {
+      retrievedWandooID = results[0].wandooID;
       callback();
     }
   });
@@ -296,6 +311,27 @@ describe('POST /api/wandoos', function() {
 xdescribe('DELETE /api/wandoos', function() {
   it('should delete a specified wandoo from the database', function() {
 
+  });
+});
+
+// INTERESTED
+
+xdescribe('GET /api/interested', function() {
+  before(function (done) {
+    getUser();
+  });
+
+  it('should return all interested matches', function() {
+    // TODO 
+    var interested = {
+      wandooID : 10, //need to change these hardcoded values
+      userID : 15
+    };
+    server
+      .post('/api/users')
+      .send(user)
+      .expect(200)
+      .end(done);
   });
 });
 

@@ -1,8 +1,26 @@
 # Wandoo API Specification
 
 ##Users
+
+### GET /api/users
+
+#### Parameters
+
+Name|Notes|Example
+----|-----|-------
+facebookID| | 10153381139067955
+
+
+#### Example
+
+```json
+curl -i http://127.0.0.1:8000/api/user/?facebookID=10153381139067955
+```
+
+#### Usage
+1. When user logs in, we need to get their userID and profile data
  
-### GET /api/users:\<userID\>
+### GET /api/users/\<userID\>
 
 #### Example
 
@@ -11,8 +29,7 @@ curl -i http://127.0.0.1:8000/api/user/324624
 ```
 
 #### Usage
-1. When user logs in, we need to display user info within their profile. 
-2. When a user likes a wandoo, we need to display user info to host
+1. When a user likes a wandoo, we need to display user info to host
 
 ### POST /api/users
 
@@ -36,8 +53,6 @@ interests | POST MVP | |
 likes | POST MVP |  |
 
 #### Examples
-
-TODO
 
 ```json
 
@@ -87,9 +102,9 @@ curl -i -X PUT -H "Content-Type: application/json" localhost:8000/api/users/21 -
 
 Name | Notes | Example
 -----|-------|------------|
-offset| The record number to start from | 1 |
+offset| The record number to start from. Must be used with limit. | 1 |
 limit | Limits the number of return values | 25 |
-userID | | 222 |
+userID | Returns all wandoos with this userID. Cannot be used with offset and limit.| 222 |
 startTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T01:30:00.040Z |
 endTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP| 2015-12-12T02:30:00.040Z |
 postTime | ISO:8601 String (use Date.prototype.toJSON()) POST MVP | 2015-12-12T01:00:00.040Z |
@@ -101,6 +116,8 @@ TO DO
 
 ```json
 curl -i http://127.0.0.1:8000/api/wandoos/4256245
+curl -i localhost:8000/api/wandoos?offset=2\&limit=5
+curl -i localhost:8000/api/wandoos?userID=1
 ```
 
 #### Usage
@@ -122,6 +139,12 @@ tag | POST MVP | lunch |
 latitude | latitude of user's position | 37.7836675 |
 longitude | longitude of user's position | -122.4091699 |
 numPeople | | 4 |
+
+#### Examples
+
+```json
+curl -i -X POST -H 'Content-Type: application/json' localhost:8000/api/wandoos -d '{"userID":63,"text":"I want to go out to lunch","startTime":"2015-12-12T01:30:00.040Z","endTime":"2015-12-12T02:30:00.040Z","postTime":"2015-12-12T01:00:00.040Z","latitude":37.7836675,"longitude":-122.4091699,"numPeople":4}'
+```
 
 ### DELETE /api/wandoos/\<wandooID\>
 
@@ -159,13 +182,19 @@ Name | Notes | Example
 wandooID| | 234325
 userID| | 245425
 
+#### Examples
+
+```json
+curl -i -X POST -H 'Content-Type: application/json' localhost:8000/api/interested -d '{"wandooID":9,"userID":63}'
+```
+
 ### PUT /api/interested/\<wandooID\>/\<userID\>
 
 #### Payload
 Name | Notes | Example
 ----|------|------
-selected| Bool that indicates that a host has selected a user | true
-rejected| Bool that indicates that a host has rejected a user | true
+selected| 1 indicates that a host has selected a user, 0 indicates that host has not. Cannot be specified if **rejected** is specified.  | 1
+rejected| 1 indicates that a host has selected a user, 0 indicates that host has not. Cannot be specified if **selected** is specified. | 0
 
 #### Usage
 1. When a host selects/rejects a user, send a PUT to change respective flag

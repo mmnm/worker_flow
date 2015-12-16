@@ -3,14 +3,28 @@ var _ = require('underscore');
 
 module.exports = {
   get : function (req, res) {
-    user.get(req.params.userID, function (err, result) {
-      if ( err ) {
-        console.error(err);
-        res.status('400').send('There was an error');
-      } else {
-        res.json(result); 
-      }
-    });
+
+    if (req.params.userID) {
+      user.getByFBUserID(req.params.userID, function (err, result) {
+        if ( err ) {
+          console.error(err);
+          res.status('400').send('There was an error');
+        } else {
+          res.json({ data : result }); 
+        }
+      });
+    } else if (req.query.facebookID) { // need to account for case when other params aside frmo facebookID are passed
+      user.getByFBID(req.query.facebookID, function (err, result) {
+        if (err) {
+          console.error(err);
+          res.status('400').send('Error in retrieval');
+        } else {
+          res.json({ data : result });
+        } 
+      });
+    } else {
+        res.status('400').send('Wrong parameters');
+    }
   },
 
   post: function (req, res) {
@@ -61,8 +75,6 @@ module.exports = {
         console.error(err);
         res.status('400').send('Error with deletion');
       } else {
-        // console.log(result1);
-        // console.log(result2);
         res.send();// what if there was no user that had the userID specified?
         // we can use result.affectedRows=0 to check if there was a deletion
       }
