@@ -142,14 +142,15 @@ class UserModel {
     }
     
     func getUserInfo(facebookID: String, completion: (result: NSDictionary) -> Void) {
-        let url = NSURL(string: "http://localhost:8000/api/users/" + facebookID)
+        let url = NSURL(string: "http://localhost:8000/api/users/?facebookID=" + facebookID)
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!) {(data, response, error) in
             
             if let data = data {
                 do {
                     let parsedData = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as? NSDictionary
-                    completion(result: parsedData!)
+                    let unwrappedData = parsedData!["data"]![0] as! NSDictionary
+                    completion(result: unwrappedData)
                 } catch {
                     print("Something went wrong")
                 }

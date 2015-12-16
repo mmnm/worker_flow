@@ -59,11 +59,11 @@ class FacebookLoginController: UIViewController {
  
     }
     
-    override func viewDidAppear(animated: Bool) {
-        if (FBSDKAccessToken.currentAccessToken() != nil) {
-            self.performSegueWithIdentifier("LoginFacebook", sender: self)
-        }
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        if (FBSDKAccessToken.currentAccessToken() != nil) {
+//            self.performSegueWithIdentifier("LoginFacebook", sender: self)
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
