@@ -41,9 +41,21 @@ var deleteQueryCB = function (err, result, res) {
 
 module.exports = {
   get : function (req, res) {
-    room.getAll(function (err, result) {
-      getQueryCB(err, result, res);
-    })
+    if (Object.keys(req.query).length + Object.keys(req.params).length > 1) {
+      res.send('Invalid parameters');
+    } else if (req.query.userID) {
+      res.send('userID');
+    } else if (req.query.wandooID) {
+      res.send('wandooID');
+    } else if (req.params.roomID) {
+      res.send('roomID');
+    } else if () { // condition for when no params or query exist
+      room.getAll(function (err, result) {
+        getQueryCB(err, result, res);
+      });
+    } else {
+      res.send('Invalid parameters');
+    }
   },
 
   post : function (req, res) {
