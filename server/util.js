@@ -1,6 +1,4 @@
 var fs = require('fs');
-var db = require('./db') // for the connection
-var mysql = require('mysql'); // for my test
 
 module.exports = {
   isoDateToMySQL : function (date) {
