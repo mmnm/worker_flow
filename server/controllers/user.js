@@ -1,5 +1,6 @@
-var user = require('../models/user.js');
+var user = require('../models/user');
 var _ = require('underscore');
+var util = require('../util');
 
 module.exports = {
   get : function (req, res) {
@@ -50,7 +51,12 @@ module.exports = {
 
     for ( var i in req.body ) {
       if ( i in userAttr ) {
-        userValues[userAttr[i]] = req.body[i];
+        if ( i === 'profilePic' ) {
+          userValues[userAttr[i]] = '/images/' + req.body['facebookID'] + '.png';
+          util.writeImage(userValues[userAttr[i]], req.body[i]);
+        } else {
+          userValues[userAttr[i]] = req.body[i];
+        }
       } else if ( i in eduAttr ) {
         eduValues[eduAttr[i]] = req.body[i];
       } else {

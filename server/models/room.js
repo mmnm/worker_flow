@@ -56,7 +56,6 @@ module.exports = {
         }
       }
     );
-
   },
 
   delete : function (roomID, callback) {
