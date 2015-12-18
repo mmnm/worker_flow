@@ -5,11 +5,11 @@ var CronJob = require('cron').CronJob;
 
 module.exports = {
 
-  schedulejob: function() {
+	schedulejob: function() {
 
-   new CronJob('*/1 * * * *', crondbclean.job, null, true, 'America/Los_Angeles');
+		new CronJob('*/10 * * * *', crondbclean.job, null, true, 'America/Los_Angeles');
 
-  }
-  
+	}
+
 };
 
