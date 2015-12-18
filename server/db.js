@@ -2,8 +2,8 @@ var mysql = require('mysql');
 var config = require('./config');
 
 db = mysql.createConnection({
-  user: 'root',
-  password: '',
+  user: config.dbUser,
+  password: config.dbPassword,
   database: 'wandoo'
 });
 
@@ -12,7 +12,6 @@ db.connect(function(err) {
     console.error('Database Connection Error: ' + err.stack);
     return;
   }
-
   console.log('Database successfully connected');
 });
 
